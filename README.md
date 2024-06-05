@@ -75,3 +75,16 @@ Add a header, navigation & logo to this website
       1. to make those CSS classes available in this file
       2. and scope those classes to this `MainHeader` component
    4. use this `classes` to access certain properties (the classes in `main-header.module.css`)
+
+## 4. Optimizing Images with the NextJS Image Component
+
+in NextJS, you have a special built-in `<Image>` component which outputs images in a more optimized way than the `<img>` element,
+for example,
+
+- by lazy loading images under the hood
+- simplify the process of setting up responsive images
+- and so on
+
+1. in `main-header.js`, replace the default `<img>` element with the `<Image>` element imported from `next/image`
+2. set the `src` to the overall object `{logoImg}`, and not to the `.src` property value
+3. as you can learned on the browser console, you should add the `priority` property to this image since it will always be visible when this page loads
