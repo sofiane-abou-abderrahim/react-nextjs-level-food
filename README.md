@@ -63,3 +63,15 @@ Add a header, navigation & logo to this website
 1.  add a `main-header.js` file inside of a `components` folder outside the `app` folder
 2.  in this file, export a React component function named `MainHeader()`
 3.  in `app/layout.js`, output this `<MainHeader>`
+
+## 3. Styling NextJS Project: Your Options & Using CSS Modules
+
+1. importing `globals.css` files
+2. Tailwind CSS
+3. NextJS CSS modules
+   1. create a new `main-header.module.css` file next to the `main-header.js` file
+   2. in this file, set up the CSS classes & styles for the main header
+   3. import this file into this `main-header.js` file, like this `import classes from './main-header.module.css';`
+      1. to make those CSS classes available in this file
+      2. and scope those classes to this `MainHeader` component
+   4. use this `classes` to access certain properties (the classes in `main-header.module.css`)
