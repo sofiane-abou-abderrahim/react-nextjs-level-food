@@ -55,3 +55,11 @@
    1. in `app/meals`, add another `[mealSlug]` subfolder which is a sibling of the `share` folder
    2. inside of it, add a `page.js` file
    3. in it, export a component function named `MealDetailsPage()`
+
+## 2. Adding a Custom Component To A Layout
+
+Add a header, navigation & logo to this website
+
+1.  add a `main-header.js` file inside of a `components` folder outside the `app` folder
+2.  in this file, export a React component function named `MainHeader()`
+3.  in `app/layout.js`, output this `<MainHeader>`
