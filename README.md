@@ -117,3 +117,10 @@ Add a little image slideshow which automatically goes through some food images t
 2. in this file, build a new component named `ImageSlideshow`
 3. next to it, add a new `image-slideshow.module.css` to apply some styles to it
 4. in `app/page.js`, output the `<ImageSlideshow>` component
+
+## 8. React Server Components vs Client Components - When To Use What
+
+In order to make this `ImageSlideshow` component work
+
+1. in `components\images\image-slideshow.js`, add the `'use client';` directive at the top of this file
+2. with that you can now output the `<ImageSlideshow>` component in `app\page.js`
