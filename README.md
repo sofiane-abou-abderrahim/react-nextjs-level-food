@@ -101,3 +101,10 @@ Outsource the header background from `app/layout.js` into a separate component
 6. in `main-header-background.js`, import the classes from `main-header-background.module.css` & use them
 7. in `components\main-header.js`, output the `<MainHeaderBackground>`
 8. in the `components` folder, group all the related header files together into a sub folder named `main-header`
+
+## 6. Populating The Starting Page Content
+
+Now that you finished the main navigation header, let's continue working on this main page content (starting page content)
+
+1. in `app/page.js`, set up some nested page specific `<header>` & below it the `<main>` section of this page
+2. next to this file, add a new `page.module.css` to apply some styles to it
