@@ -88,3 +88,16 @@ for example,
 1. in `main-header.js`, replace the default `<img>` element with the `<Image>` element imported from `next/image`
 2. set the `src` to the overall object `{logoImg}`, and not to the `.src` property value
 3. as you can learned on the browser console, you should add the `priority` property to this image since it will always be visible when this page loads
+
+## 5. Using More Custom Components
+
+Outsource the header background from `app/layout.js` into a separate component
+
+1. in the `components` folder, add a `main-header-background.js` file
+2. in there, export a component named `MainHeaderBackground()`
+3. grab the `<div>` from `layout.js` & paste it in `main-header-background.js`
+4. add a `main-header-background.module.css`
+5. cut the `.header-background` class & the `svg` selector from `app\globals.css` & paste in `main-header-background.module.css`
+6. in `main-header-background.js`, import the classes from `main-header-background.module.css` & use them
+7. in `components\main-header.js`, output the `<MainHeaderBackground>`
+8. in the `components` folder, group all the related header files together into a sub folder named `main-header`
