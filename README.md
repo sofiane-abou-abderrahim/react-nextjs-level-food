@@ -124,3 +124,23 @@ In order to make this `ImageSlideshow` component work
 
 1. in `components\images\image-slideshow.js`, add the `'use client';` directive at the top of this file
 2. with that you can now output the `<ImageSlideshow>` component in `app\page.js`
+
+## 9. Using Client Components Efficiently
+
+Now that you finished this starting page, let's continue working on this Community page
+
+1. populate `app\community\page.js` with some dummy content
+2. next to it, add a `app/community/page.module.css` file to apply some styles to it
+3. in `components\main-header\main-header.js`, highlight the active navigation link
+   1. get hold of the currently active path with help of the NextJS `usePathname()` hook & store it in a `path` constant
+   2. use this `path` constant in the `<Link>` to add the `active` class conditionally
+   3. add the `'use client';` directive at the top of this file
+4. add a new `nav-link.js` & export a `NavLink` component function & add a `nav-link.module.css` file next to it
+   1. in `nav-link.js`, paste the `<Link>` cut from `components\main-header\main-header.js`
+   2. make the `<NavLink>` component function configurable
+   3. convert it into a client component by adding the `'use client';` directive at the top of this file
+   4. cut the link & the class related CSS styles from `main-header.module.css` & paste them in `nav-link.module.css`
+   5. add `import classes from './nav-link.module.css'`
+5. back in `components\main-header\main-header.js`, make sure that this component is not converted into a client side component by
+   1. getting rid of `'use client';` & `usePathname()`
+   2. outputting this newly added `<NavLink>` component
