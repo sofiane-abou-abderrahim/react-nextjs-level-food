@@ -108,3 +108,12 @@ Now that you finished the main navigation header, let's continue working on this
 
 1. in `app/page.js`, set up some nested page specific `<header>` & below it the `<main>` section of this page
 2. next to this file, add a new `page.module.css` to apply some styles to it
+
+## 7. Preparing an Image Slideshow
+
+Add a little image slideshow which automatically goes through some food images that should show up
+
+1. in the `components` folder, add a new subfolder called `images` & in there, add a `image-slideshow.js` file
+2. in this file, build a new component named `ImageSlideshow`
+3. next to it, add a new `image-slideshow.module.css` to apply some styles to it
+4. in `app/page.js`, output the `<ImageSlideshow>` component
