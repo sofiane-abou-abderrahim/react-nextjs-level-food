@@ -144,3 +144,21 @@ Now that you finished this starting page, let's continue working on this Communi
 5. back in `components\main-header\main-header.js`, make sure that this component is not converted into a client side component by
    1. getting rid of `'use client';` & `usePathname()`
    2. outputting this newly added `<NavLink>` component
+
+## 10. Outputting Meals Data & Images With Unknown Dimensions
+
+Now that you worked on the starting page, the community page & improved the header,
+it's time to work on that meals page & output some meals there
+before you then thereafter will make sure that users can also share meals
+
+1. in `app\meals\page.js`, output a bunch of meals which you will soon store in a database
+   1. set up the base markup/structure of this page
+   2. next to this file, add a new `page.module.css` for applying some styles to it
+2. add a separate component for outputting the meals
+   1. in the `components` folder, add a `meals` folder
+   2. in there, add a `meals-grid.js` file for outpuuting a bunch of meal items in a grid
+   3. next to it, add a `meals-grid.module.css` for applying some styles to it
+   4. in the same `meals` folder, add another file named `meal-item.js`
+   5. next to it, add a `meal-item.module.css` for applying some styles to it
+   6. output the `<MealItem>` component in `meals-grid.js`
+3. in `meals/page.js`, output the `<MealsGrid>` component (you have no data yet, so you won't see anything on the screen)
