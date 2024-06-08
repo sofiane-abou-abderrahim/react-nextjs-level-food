@@ -162,3 +162,12 @@ before you then thereafter will make sure that users can also share meals
    5. next to it, add a `meal-item.module.css` for applying some styles to it
    6. output the `<MealItem>` component in `meals-grid.js`
 3. in `meals/page.js`, output the `<MealsGrid>` component (you have no data yet, so you won't see anything on the screen)
+
+## 11. Setting Up A SQLite Database
+
+In order for this `<MealsGrid>` component in `meals/page.js` to be useful & to see something on the screen, you need meals
+And for that you can set up a basic database that would store some dummy meals & that would later also store meals shared by users
+
+1. in your terminal, run `npm install better-sqlite3` which is a package that will allow you to work with a sqlite database
+2. add a `initdb.js` file in your root project directory to create a database & populate it with some dummy data
+3. in your terminal, run `node initdb.js` to have some dummy meals available & have a `meals.db` file created (the sqlite database)
