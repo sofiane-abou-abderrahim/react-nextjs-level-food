@@ -171,3 +171,15 @@ And for that you can set up a basic database that would store some dummy meals &
 1. in your terminal, run `npm install better-sqlite3` which is a package that will allow you to work with a sqlite database
 2. add a `initdb.js` file in your root project directory to create a database & populate it with some dummy data
 3. in your terminal, run `node initdb.js` to have some dummy meals available & have a `meals.db` file created (the sqlite database)
+
+## 12. Fetching Data By Leveraging NextJS & Fullstack Capabilities
+
+When it comes to loading data in a NextJS application, you got a couple of different options:
+
+- you could fetch the data as you would do it in any Vanilla React application, for example with the `useEffect()` hook & in there the `fetch()` to send a request to a backend
+- in a NextJS application, you already have a backend & since the `MealsPage` component, by default, runs on the server, you can directly reach out to the database
+
+1. in your root project folder, add a new `lib` folder & in there, add a new `meals.js`
+2. in `lib/meals.js`, write the code that reaches out the database
+3. in `app\meals\page.js`, call `getMeals()` inside the `MealsPage()` component function imported from `lib\meals.js` to get back your meals
+4. with that done, pass these `{meals}` as a value to the `meals` prop in the `<MealsGrid>` component to render the data fetched from the database & the images from the `public` folder
