@@ -231,3 +231,21 @@ You can change it, if you want to
 
 1. add a `not-found.js` file which is a reserved file name to the root of your project for example
 2. in it, export a `NotFound()` component function
+
+## 17. Loading & Rendering Meal Details via Dynamic Routes & Route Parameters
+
+1. go to `app\meals\[mealSlug]\page.js` & set up the base markup/structure of this page which contains a `header` & a `main` section
+   1. the `header` section outputs the title, the creator's name & a summary
+   2. the `main` section outputs the instructions that are stored for every meal as HTML code by targetting the `dangerouslySetInnerHTML` prop to avoid cross site scripting attacks
+2. next to it, add a `page.module.css` for applying some styles to it
+3. in order to have some data to output in your `MealDetailsPage`, go back to `lib\meals.js` & export a new `getMeal()` function which accepts a `slug` as a parameter
+4. go back to `app\meals\[mealSlug]\page.js` & call `getMeal()` to store every meal in a `meal` constant
+5. `getMeal()` needs that `slug` which is that part that's encoded in the URL that is called with help of
+   1. this `mealSlug` placeholder which you get via the special `{params}` prop that's available in every `page.js` file
+   2. which contains an object as a value where any dynamic path segment that's configured for this route will be stored as a key/value pair
+   3. so `mealSlug` will be used as a key
+   4. and the actual value encoded in the URL will be used as a value for that key
+   5. and it is that value that you need to get to look for that value in the database
+   6. so, pass `params.mealSlug` to `getMeal()` & that would be that identifier that allows you to fetch a meal from the database
+6. use this `meal` constant to populate the JSX code with the meal data
+7. use `{meal.instructions.replace()}` & a regular expression to output the line breaks
