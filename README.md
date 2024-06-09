@@ -259,3 +259,8 @@ But, it's not actually an error that occurs, instead the user just didn't find t
 1. in `app\meals\[mealSlug]\page.js`, check if `meal` is undefined & then show the closest `not-found.js` or `error.js` page available in this project
 2. to trigger that, call the special `notFound` function provided by NextJS and imported by `next/navigation`
 3. add a new `not-found.js` file in `app\meals` so that you can output a more customized not found error
+
+## 19. Getting Started with the "Share Meal" Form
+
+1. in `app\meals\share\page.js`, set up a form to add our own meals
+2. next to it, add a `page.module.css` for applying some styles to it
