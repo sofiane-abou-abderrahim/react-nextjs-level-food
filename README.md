@@ -193,3 +193,21 @@ It would be nice if you had some loading indicator whilst the page is loading wh
    - this file will become active if the page next to it or any nested page or layout is loading data
    - and in that case that `loading.js` content is shown as a fallback until the data is there
 2. next to `loading.js`, add a `loading.module.css` file for applying some styles to it
+
+## 14. Using Suspense & Streamed Responses For Granular Loading State Management
+
+The loading text basically occupies the entire screen
+However, the header doesn't display and it doesn't depend on any loaded data at all
+So, show this header instantly & only show the loading text whilst you're waiting for the meals to be fetched
+
+1. replace `loading.js` by `loading-out.js` so that it doesn't have any special purpose anymore (so you won't use it anymore)
+2. move the `loading-out.js` & the `loading.module.css` file into the `meals` folder (it was the place where you should use at first)
+3. now, go to `app\meals\page.js` because NextJS gives a more granular way of handling loading states
+   1. basically, you can go to the place where you have some operation that might take a bit longer, like here in `<MealsGrid>`
+   2. you can then create a separate component (here you can do it in `app\meals\page.js` since it would be a component that is closely connected to this `MealsPage`)
+   3. name this component `Meals`
+   4. this is now this component that will fetch the data
+   5. this component will now return this `<MealsGrid>`
+   6. and now the `<Meals>` can be output in the `MealsPage()` component function
+      - the advantage is that now you outsourced the data fetching part into a separate component
+   7. so you can now wrap this `<Meals>` component with the `<Suspenses>` component that is built into React
