@@ -249,3 +249,13 @@ You can change it, if you want to
    6. so, pass `params.mealSlug` to `getMeal()` & that would be that identifier that allows you to fetch a meal from the database
 6. use this `meal` constant to populate the JSX code with the meal data
 7. use `{meal.instructions.replace()}` & a regular expression to output the line breaks
+
+## 18. Throwing Not Found Errors For Individual Meals
+
+If a user tries to look for a meal that doesn't exist, you get "An error occured" page,
+because you try to get the `instructions` on undefined, because you weren't able to load a meal
+But, it's not actually an error that occurs, instead the user just didn't find the requested meal
+
+1. in `app\meals\[mealSlug]\page.js`, check if `meal` is undefined & then show the closest `not-found.js` or `error.js` page available in this project
+2. to trigger that, call the special `notFound` function provided by NextJS and imported by `next/navigation`
+3. add a new `not-found.js` file in `app\meals` so that you can output a more customized not found error
