@@ -264,3 +264,12 @@ But, it's not actually an error that occurs, instead the user just didn't find t
 
 1. in `app\meals\share\page.js`, set up a form to add our own meals
 2. next to it, add a `page.module.css` for applying some styles to it
+
+## 20. Getting Started with a Custom Image Picker Input Component
+
+1. in the `components\meals` folder, add a new `image-picker.js` file
+   1. in it, export a `ImagePicker()` component function
+   2. in this function, output some markup & handle the picking process
+2. next to it, add a `image-picker.module.css` for applying some styles to it
+3. back in `app\meals\share\page.js`, use this `<ImagePicker>` component
+4. make this image picker a bit more fancy by replacing the default button with your own nice button
