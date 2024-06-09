@@ -222,3 +222,12 @@ for example, if loading some data fails
 2. add some error handling, by adding `app\meals\error.js`
 3. this file must be a client component, so add the `use client` directive at the top of it
 4. go back to `lib/meals.js` & comment out that error
+
+## 16. Handling "Not Found" States
+
+There is another kind of error that could occur when a user enters an invalid URL
+NextJS has a default 404 page to handle that
+You can change it, if you want to
+
+1. add a `not-found.js` file which is a reserved file name to the root of your project for example
+2. in it, export a `NotFound()` component function
