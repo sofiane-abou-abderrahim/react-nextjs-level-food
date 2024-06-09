@@ -183,3 +183,13 @@ When it comes to loading data in a NextJS application, you got a couple of diffe
 2. in `lib/meals.js`, write the code that reaches out the database
 3. in `app\meals\page.js`, call `getMeals()` inside the `MealsPage()` component function imported from `lib\meals.js` to get back your meals
 4. with that done, pass these `{meals}` as a value to the `meals` prop in the `<MealsGrid>` component to render the data fetched from the database & the images from the `public` folder
+
+## 13. Adding A Loading Page
+
+It would be nice if you had some loading indicator whilst the page is loading when you visit it
+
+1. next to `app\page.js`, add a new `loading.js` page
+   - which just like `page.js` & `layout.js` is a reserved file name
+   - this file will become active if the page next to it or any nested page or layout is loading data
+   - and in that case that `loading.js` content is shown as a fallback until the data is there
+2. next to `loading.js`, add a `loading.module.css` file for applying some styles to it
