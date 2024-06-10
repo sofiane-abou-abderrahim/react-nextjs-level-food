@@ -341,3 +341,20 @@ let's now work on storing that data
       - remove any harmful content from the `instructions` by calling `xss(meal.instructions)`
 3. in `lib\meals.js`, import these 2 packages
 4. with all that done, you prepared all the data except for the image
+
+## 25. Storing Uploaded Images & Storing Data in the Database
+
+The image should be stored on the file system, not in the database
+so, you can store the uploaded files in the `public` folder
+
+1. in `lib\meals.js`, get the `extension` of the uploaded image
+2. generate a unique `fileName`
+3. write the `fileName` in a file in the `public` folder with help of the file system `fs` API provided by NodeJS
+   - import `fs` from `node:fs`
+   - use `fs` to call `createWriteStream()` to which you should pass a path
+   - from it, get a `stream` which you can use to write to that image in that path with help of `write()` which wants a `chunk` & a function
+     - in order to get the chunk, you should convert the image into a `bufferedImage` with help of the `arrayBuffer()` method
+     - the function takes an `error` argument & should throw an error message in case there is an error
+4. override the `meal.image` that stored in your `meal` object (in `lib\actions.js`) with the `/images/${fileName}` path to the image where we stored it
+5. with that you finished the preparation for this `meal` object & now you can save it in the database with help of `db.prepare().run()`
+6. go back to your server action to `lib\actions.js` & call `saveMeal()` & redirect()
