@@ -290,3 +290,25 @@ and then store some state so that you can update the UI & show up a preview as s
    4. you get access to the generated URL by accessing `fileReader.result` which will be that generated URL
    5. store this generated URL in your state like this `setPickedImage(fileReader.result);`
 6. use this `pickedImage` state to show a preview
+
+## 22. Introducing & Using Server Actions for Handling Form Submissions
+
+When it comes to handling form submissions:
+
+- you could do that as you do it with most React projects
+  - by adding the `onSubmit` prop to the `form` element
+  - & defining a function that should be executed when the form is submitted
+  - then, in there, prevent the browser default, manually collect all the data & send it to a backend
+- in NextJs, you already have a backend, that's why it gives you a more powerful & convenient pattern:
+
+1. in `app\meals\share\page.js`, create a function which you could call `shareMeal`
+2. inside of it, add the special `use server` directive which create a so called server action which is a function that's guaranteed to execute on the server and only there
+3. you must add `async` in front of the `shareMeal()` function to really turn this `use server` into a server action
+4. this feature exists (in React, not just in NextJS) so that you can assign this server action as a value for the `action` prop on a function
+   - so here `action={shareMeal}`, you assign `shareMeal` as a value on the `action` prop of the `form`
+   - this pattern will ensure that when this form is submitted, NextJS will behind the scenes create a request and send it to this NextJS server that's serving the website, so that `shareMeal()` function gets triggered & you can then handle the form submission there, but on the server, not in the client
+5. this `shareMeal()` function automatically receives the `formData` that was submitted, so pass `formData` to it as a parameter
+6. then, use that `formData` object to handle the submitted data, for example create a `meal` object by extracting meal data from that `formData`
+7. the next step is to store this `meal` data in a database
+   - though, the image should be stored on the file system and then a path of the image should be stored in a database
+8. but, before that just console log the `meal` to see some output on the server side in your terminal for now
