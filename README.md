@@ -312,3 +312,17 @@ When it comes to handling form submissions:
 7. the next step is to store this `meal` data in a database
    - though, the image should be stored on the file system and then a path of the image should be stored in a database
 8. but, before that just console log the `meal` to see some output on the server side in your terminal for now
+
+## 23. Storing Server Actions in Separate Files
+
+There also is another way to add a server action:
+
+- you can add it in a component like you did before, but this would only work if the component in which you are adding it is not a client component
+- you might not want to have your server-side form submission handling logic in the same file as your JSX code
+
+1. store your server action in a separate newly added `actions.js` file in the `lib`
+2. at the top of this file you have to add the `use server` directive
+3. back to `app\meals\share\page.js`, cut the `shareMeal()` function
+4. paste it in `lib\actions.js` & export it
+5. back to `app\meals\share\page.js`, import it & use it
+6. now you would be able to convert this component into a client component if you needed to
