@@ -326,3 +326,18 @@ There also is another way to add a server action:
 4. paste it in `lib\actions.js` & export it
 5. back to `app\meals\share\page.js`, import it & use it
 6. now you would be able to convert this component into a client component if you needed to
+
+## 24. Creating a Slug & Sanitizing User Input for XSS Protection
+
+let's now work on storing that data
+
+1. in `lib\meals.js`, add a new `saveMeal()` function which expect a `meal` object as an input for saving a meal
+2. inside this function,
+   1. generate a slug based on the title, because you want to store a slug in your database for every meal
+      - in your terminal, run `npm install slugify`
+      - create a new `slug` by calling `slugify(meal.title, {lower: true})`
+   2. sanitize the content sent by the user to protect your site against cross site scripting attack
+      - in your terminal, run `npm install xss`
+      - remove any harmful content from the `instructions` by calling `xss(meal.instructions)`
+3. in `lib\meals.js`, import these 2 packages
+4. with all that done, you prepared all the data except for the image
