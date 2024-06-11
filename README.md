@@ -393,3 +393,17 @@ And at the moment, you're not performing any validation at all in your server ac
 1. in `lib\actions.js`, add a helper function named `isInvalidText()` for example
 2. use this helper function in an if statement to check each input, the email & the image & throw an error
 3. in `app\meals\share`, add a specific `error.js` file
+
+## 28. Working with Server Action Responses & useFormState
+
+Handle validation errors in a more elegant way so that the user doesn't lose his data
+
+1. in `lib\actions.js`, instead of throwing an error, return a response object
+   - wich has to be a serializable object without any methods for example
+   - in this object, add a `message` field
+2. use that response in `app\meals\share\page.js` where you trigger that server action with help of another hook named `useFormState()` hook which is provided by React DOM
+   - it's similar as `useState()` because it's responsible for managing the state of this component which uses a form that will be submitted with help of server actions
+3. in `lib\actions.js`, you need to tweak the `shareMeal` action though because it should now accept 2 parameters
+   - the first one is the `prevState`
+   - the second one is still the submitted data `formData`
+4. in `app\meals\share\page.js`, add the `use client` directive at the top of the file
