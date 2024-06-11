@@ -407,3 +407,22 @@ Handle validation errors in a more elegant way so that the user doesn't lose his
    - the first one is the `prevState`
    - the second one is still the submitted data `formData`
 4. in `app\meals\share\page.js`, add the `use client` directive at the top of the file
+
+## 29. Building For Production & Understanding NextJS Caching
+
+1. in your terminal, run `npm run build`
+2. run `npm start`
+
+NextJS performs some pretty agressive caching
+and it prerenders all the pages of your app that can be pre-generated (basically, all non-dynamic pages)
+for example, it pregenerates the `meals` page (`app\meals\page.js`)
+that's why:
+
+- now, in production, when adding a new meal, the meal doesn't render
+- the delay added in `lib\meals.js` is also missing in production
+
+So, the downside of this approach, that it never re-fetches the meals (`const meals = await getMeals()`) because the `Meals()` function never executes again
+
+3. To prove that, in `app\meals\page.js`, console log "Fetching Meals"
+4. run again `npm run build` & `npm start`
+5. if you reload the meals page, you don't see "Fetching meals" in your terminal because those pages were pregenerated & cached
