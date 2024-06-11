@@ -384,3 +384,12 @@ for example, you could update the "Share Meal" button once it's clicked
    6. return a `<button>` that conditionally outputs "Submitting..." or "Share Meal"
 
 3. go back to `app\meals\share\page.js` & output the `<MealsFormSubmit>` component instead of the vanilla `<button>`
+
+## 27. Adding Server-Side Input Validation
+
+One other thing you should typically do when handling user data & form submissions is validate the values you're getting
+And at the moment, you're not performing any validation at all in your server action in `lib\actions.js`
+
+1. in `lib\actions.js`, add a helper function named `isInvalidText()` for example
+2. use this helper function in an if statement to check each input, the email & the image & throw an error
+3. in `app\meals\share`, add a specific `error.js` file
