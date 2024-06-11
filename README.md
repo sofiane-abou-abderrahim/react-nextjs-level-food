@@ -358,3 +358,29 @@ so, you can store the uploaded files in the `public` folder
 4. override the `meal.image` that stored in your `meal` object (in `lib\actions.js`) with the `/images/${fileName}` path to the image where we stored it
 5. with that you finished the preparation for this `meal` object & now you can save it in the database with help of `db.prepare().run()`
 6. go back to your server action to `lib\actions.js` & call `saveMeal()` & redirect()
+
+## 26. Managing the Form Submission Status with useFormStatus
+
+Further enhance the user experience, because now, when submitting the form, it takes some time before getting redirected
+So, it would be nice to get some feedback as a user whilst the data is being submitted to see that the request is on its way
+for example, you could update the "Share Meal" button once it's clicked
+
+1. you can use the `useFormStatus()` hook provided by React (but again, this feature really only works when using NextJS)
+
+   1. in `app\meals\share\page.js`, import `{useFormStatus}` from `react-dom`
+   2. use it to get a `status` object with, for example, a `pending` property
+   3. to remove the error on `http://localhost:3000/meals/share`, you could add `use client` at the top of `app\meals\share\page.js`
+
+      - however, you might not want to turn this entire page into a client component just because of updating conditionally this button
+      - in addition, the `useFormStatus()` hook will only give you the submission status of a form if it's inside of that form for which it should give you the status, so, it wouldn't work anyway
+
+2. so, remove this `useFormStatus()` hook from `app\meals\share\page.js` & instead add a new `meals-form-submit.js` component in `components\meals`
+
+   1. in this file, export a `MealsFormSubmit()` component function
+   2. import `{useFormStatus}` from `react-dom`
+   3. add the `use client` directive at the top of this file
+   4. inside of `MealsFormSubmit()`, get the `status` by calling `useFormStatus()`
+   5. use the object destructuring to pull out some properties from this `status` object, like in your case the `pending` property
+   6. return a `<button>` that conditionally outputs "Submitting..." or "Share Meal"
+
+3. go back to `app\meals\share\page.js` & output the `<MealsFormSubmit>` component instead of the vanilla `<button>`
