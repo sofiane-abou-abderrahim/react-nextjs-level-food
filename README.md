@@ -446,3 +446,11 @@ That's why in NextJS docs https://nextjs.org/docs/pages/building-your-applicatio
 You can aslos useAWS S3 or Cloudinary, for example
 
 ## 32. Bonus: Storing Uploaded Images In The Cloud (AWS S3)
+
+## 33. Adding Static Metadata
+
+Set some specific metada for some of your pages
+
+1. in `app\meals\page.js`, export a `metadata` constant
+2. set a `title` & a `description` to it
+3. in your terminal run `npm run build` & `npm start`
