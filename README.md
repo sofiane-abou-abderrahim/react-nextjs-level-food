@@ -437,3 +437,10 @@ For that, there is a built-in function provided by NextJS named `revalidatePath(
 3. now, the image is missing, but the newly added meal is rendered on the meals page
 4. in addition, in your terminal you get these "Fetching meals" logs back
 5. you also have this error message `⨯ The requested resource isn't a valid image for /images/not-cached.jpg received text/html; charset=utf-8` in your terminal
+
+## 31. Don't Store Files Locally On The Filesystem!
+
+Let's focus on that missing image
+The image is missing because the images are stored in the `public/images` folder which is only available in development mode
+That's why in NextJS docs https://nextjs.org/docs/pages/building-your-application/optimizing/static-assets, it says: `We recommend using a third-party service like Vercel Blob for persistent file storage.`
+You can aslos useAWS S3 or Cloudinary, for example
