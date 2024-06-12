@@ -444,3 +444,5 @@ Let's focus on that missing image
 The image is missing because the images are stored in the `public/images` folder which is only available in development mode
 That's why in NextJS docs https://nextjs.org/docs/pages/building-your-application/optimizing/static-assets, it says: `We recommend using a third-party service like Vercel Blob for persistent file storage.`
 You can aslos useAWS S3 or Cloudinary, for example
+
+## 32. Bonus: Storing Uploaded Images In The Cloud (AWS S3)
