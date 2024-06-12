@@ -454,3 +454,13 @@ Set some specific metada for some of your pages
 1. in `app\meals\page.js`, export a `metadata` constant
 2. set a `title` & a `description` to it
 3. in your terminal run `npm run build` & `npm start`
+
+## 34. Adding Dynamic Metadata
+
+For dynamic pages, instead of exporting a `metadata` constant, export an `async function generateMetadata()` which is also a reserved name
+
+1. in `app\meals\[mealSlug]\page.js`, export an async function named `generateMetadata()`
+2. pass to it the `params` prop as an argument to get the meal slug for which the metadata should be generated
+3. inside of that function, return an object with a `title` & a `description` field
+4. if you enter an invalid slug in the URL, you get an error instead of the "NotFound" page, so to fix this, inside of that function, add a check where you call the `notFound()` if the `meal` is undefined
+5. in your terminal, run `npm run build` & `npm start`
