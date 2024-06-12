@@ -426,3 +426,14 @@ So, the downside of this approach, that it never re-fetches the meals (`const me
 3. To prove that, in `app\meals\page.js`, console log "Fetching Meals"
 4. run again `npm run build` & `npm start`
 5. if you reload the meals page, you don't see "Fetching meals" in your terminal because those pages were pregenerated & cached
+
+## 30. Triggering Cache Revalidations
+
+To fix the problem of NextJS caching to aggressively, you need to tell NextJS to throw away its cache or part of its cache whenever you add a new meal
+For that, there is a built-in function provided by NextJS named `revalidatePath()`
+
+1. in `lib\actions.js`, right after saving a meal and befor redirecting, use this `revalidatePath('/meals')` function imported from `next/cache`
+2. in your terminal, run `npm run build` & `npm start`
+3. now, the image is missing, but the newly added meal is rendered on the meals page
+4. in addition, in your terminal you get these "Fetching meals" logs back
+5. you also have this error message `⨯ The requested resource isn't a valid image for /images/not-cached.jpg received text/html; charset=utf-8` in your terminal
